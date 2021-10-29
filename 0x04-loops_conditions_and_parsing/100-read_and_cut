@@ -1,0 +1,4 @@
+#!/usr/bib/env bash
+# displays username, userid, and home directory path for user of a file
+
+cat /etc/passwd | cut -d ':' -f 1,3,6
