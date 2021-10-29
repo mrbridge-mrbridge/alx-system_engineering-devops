@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-# read file and displays specific fields only:
+# read file and displays specific fields
 # username, user-id, and home directory path for user of a file
-
-F=/etc/passwd
 
 while read line
 do
 	echo "$line" | cut -d ':' -f 1,3,6
-done < "$F"
+done < "/etc/passwd"
