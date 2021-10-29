@@ -1,4 +1,8 @@
 #!/usr/bib/env bash
-# displays username, userid, and home directory path for user of a file
+# read file and displays specific fields only:
+# username, user-id, and home directory path for user of a file
 
-cat /etc/passwd | cut -d ':' -f 1,3,6
+while read "$(/etc/passwd)"
+do
+	echo "$(/etc/passwd)" | cut -d ':' -f 1,3,6
+done
