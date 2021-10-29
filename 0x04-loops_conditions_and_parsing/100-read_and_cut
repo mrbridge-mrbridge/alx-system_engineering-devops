@@ -2,7 +2,7 @@
 # Read file and displays specific fields
 # Username, user-id, and home directory path for user of a file
 
-while read -r "$(/etc/passwd)"
+while read -r "/etc/passwd"
 do
 	echo "$(/etc/passwd)" | cut -d ':' -f 1,3,6
 done < "/etc/passwd"
