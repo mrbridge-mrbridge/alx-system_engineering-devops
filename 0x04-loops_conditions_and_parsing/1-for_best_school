@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#Script prints "Best School" 10 times
+
 for (( n=0; n<10; n++ ))
 do
 	echo "Best School"
