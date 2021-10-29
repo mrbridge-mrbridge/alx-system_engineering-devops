@@ -12,4 +12,5 @@ do
                 echo $m
                 (( m++ ))
         done
+	(( n++ ))
 done
