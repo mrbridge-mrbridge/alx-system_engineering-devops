@@ -1,4 +1,4 @@
-#!/usr/bib/env bash
+#!/usr/bin/env bash
 # read file and displays specific fields only:
 # username, user-id, and home directory path for user of a file
 
