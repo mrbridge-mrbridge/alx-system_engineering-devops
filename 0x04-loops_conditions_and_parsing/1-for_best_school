@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Script prints "Best School" 10 times
+# Script prints "Best School" 10 times
 
 for (( _=0; _<10; _++ ))
 do
