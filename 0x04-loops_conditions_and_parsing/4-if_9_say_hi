@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Prints "Best School" 10 times but adds newline
+#+ and "Hi" on the 9th time
+
+n=0
+while [ $n -lt 10 ]
+do
+
+        if [ $n -eq 8 ]
+        then
+                echo "Best School"
+                echo "Hi"
+        else
+                echo "Best School"
+        fi
+        n=$(( n+1 ))
+done
