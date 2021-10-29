@@ -8,7 +8,7 @@ do
         minute=1
         while [ $minute -lt 60 ]
         do
-                echo $minute
+                echo "$minute"
                 (( minute++ ))
         done
         (( hour++ ))
