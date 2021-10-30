@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# indefinite loop that traps SIGTERM  SIGINT SIGQUIT signals
-# creates a file containing its PID
+# creates the file "/var/run/myscript.pid" containing its PID
+# Displays "To infinity and beyond" indefinitely
+# traps SIGTERM SIGINT and SIGQUIT and quit when SIGQUIT and SIGTERM signals show
 
 echo "$$" > /var/run/myscript.pid
 trap "echo 'I hate the kill command'; rm /var/run/myscript.pid; exit" SIGTERM
