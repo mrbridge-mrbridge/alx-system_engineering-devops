@@ -2,7 +2,7 @@
 # indefinite loop that traps SIGTERM  SIGINT SIGQUIT signals
 # creates a file containing its PID
 
-echo $$ > /var/run/myscript.pid
+echo "$$" > /var/run/myscript.pid
 
 i=0
 while [ $i -lt 1 ]
