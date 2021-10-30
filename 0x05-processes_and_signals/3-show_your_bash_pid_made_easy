@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# displays PID along with process name and processes containing 
+#+ word "bash" (use of ps is not allowed)
+
+pstree | grep "bash"
