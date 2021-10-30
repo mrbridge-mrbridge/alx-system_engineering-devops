@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # display all running processes without recourse to tty/ thus everything
 
-ps aux
+ps auxf
