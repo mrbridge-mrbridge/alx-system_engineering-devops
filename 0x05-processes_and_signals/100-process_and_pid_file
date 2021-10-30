@@ -3,10 +3,15 @@
 # Displays "To infinity and beyond" indefinitely
 # traps SIGTERM SIGINT and SIGQUIT and quit when SIGQUIT and SIGTERM signals show
 
+clean()
+{
+	rm /var/run/myscript.pid
+	exit
+}
 echo "$$" > /var/run/myscript.pid
-trap "echo 'I hate the kill command'; rm /var/run/myscript.pid; exit" SIGTERM
+trap "echo 'I hate the kill command' && clean" SIGTERM
 trap "echo 'Y U no love me?!'" SIGINT
-trap "rm /var/run/myscript.pid; exit" SIGQUIT
+trap "clean" SIGQUIT
 
 while true
 do
