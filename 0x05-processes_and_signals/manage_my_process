@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# writes "I am alive!" to /tmp/my_process and 
+#+ pauses for 2 sec in a forever loop
+
+while true
+do
+	echo "I am alive!" >> /tmp/my_process
+	sleep 2
+done
