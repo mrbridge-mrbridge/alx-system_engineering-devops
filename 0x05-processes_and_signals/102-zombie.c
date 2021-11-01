@@ -2,37 +2,35 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-
-int infinite_while(void);
+/**
+ * infinite_while - keeps programme in forever loop
+ * Return: 0
+ */
+int infinite_while(void)
+{
+        while (1)
+        {
+                sleep(1);
+        }
+        return (0);
+}
 
 /**
  * main - creats five zombie processes
- *
- * Return: 0
+ * Return: infinite__while
  */
 int main(void)
 {
-	for (int i = 0; i < 5; i++)
+	int i;
+	pid_t pid;
+
+	for (i = 0; i < 5; i++)
 	{
-		pid_t pid = fork();
+		pid = fork();
 		if (pid == 0)
 			exit (0);
 		else
 			printf("Zombie process created, PID: %d\n", pid);
 	}
 	return (infinite_while());
-}
-
-/**
- * infinite_while - keeps programme in forever loop
- *
- * Return: 0
- */
-int infinite_while(void)
-{
-    	while (1)
-    	{
-        	sleep(1);
-    	}
-    	return (0);
 }
