@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # displays all active IPv4 IPs on the machine it get executed
 
-ifconfig | grep -oP 'inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
+ifconfig | grep -oP 'inet \K\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | cat -vE
