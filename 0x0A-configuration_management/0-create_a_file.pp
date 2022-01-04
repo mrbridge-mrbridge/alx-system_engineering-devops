@@ -1,10 +1,10 @@
-# create a file in /tmp with requirements as given
+# Create a file in /tmp
 
 file { 'school':
   ensure  => 'present',
   content => 'I love Puppet',
-  mode    => '0744',
-  owner   => 'www_data',
   group   => 'www-data',
+  mode    => '0744',
+  owner   => 'www-data',
   path    => '/tmp/school',
 }
