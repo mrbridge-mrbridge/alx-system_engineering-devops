@@ -13,9 +13,6 @@ printf %s "server {
     listen	[::]:80 default_server;
     root	/var/nginx/html;
     index	index index.html index.htm index.nginx-debian.html;
-    server_name _;
-    #location / {
-    #            try_files $uri $uri/ =404;
-    #    }
+}
 " > /etc/nginx/sites-available/default
 sudo service nginx restart
