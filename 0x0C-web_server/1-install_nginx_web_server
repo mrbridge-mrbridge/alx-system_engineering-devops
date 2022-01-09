@@ -18,4 +18,4 @@ echo "Hello World!" > /var/www/html/index.nginx-debian.html
 #                try_files $uri $uri/ =404;
 #        }
 #" > /etc/nginx/sites-available/default
-sudo service nginx start
+sudo service nginx restart
