@@ -11,7 +11,7 @@ echo "Hello World!" > /var/www/html/index.nginx-debian.html
 printf %s "server {
     listen	80 default_server;
     listen	[::]:80 default_server;
-    root	/var/nginx/html;
+    root	/var/www/html;
     index	index index.html index.htm index.nginx-debian.html;
 }
 " > /etc/nginx/sites-available/default
