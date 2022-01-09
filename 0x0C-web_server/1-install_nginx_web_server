@@ -8,14 +8,14 @@
 sudo apt-get -y update
 sudo apt-get install -y nginx
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-printf %s "server {
-    listen	80 default_server;
-    listen	[::]:80 default_server;
-    root	/var/nginx/html;
-    index	index index.html index.htm index.nginx-debian.html;
-    server_name _;
-    location / {
-                try_files $uri $uri/ =404;
-        }
-" > /etc/nginx/sites-available/default
-sudo service nginx restart
+# printf %s "server {
+#    listen	80 default_server;
+#    listen	[::]:80 default_server;
+#    root	/var/nginx/html;
+#    index	index index.html index.htm index.nginx-debian.html;
+#    server_name _;
+#    location / {
+#                try_files $uri $uri/ =404;
+#        }
+#" > /etc/nginx/sites-available/default
+sudo service nginx start
