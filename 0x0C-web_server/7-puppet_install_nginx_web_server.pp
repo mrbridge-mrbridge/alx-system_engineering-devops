@@ -2,21 +2,21 @@
 # prints 'hello world!' on default page
 
 package { 'nginx':
-  ensure  => 'installed',
-}
-file { '/var/www/html/index.nginx-debian.html':
-  ensure  => 'file',
-  content => 'Hello World!',
-  type	  => 'file',
+  ensure => installed,
 }
 
 file_line { 'redirect':
-  ensure  => 'present',
-  path	  => '/etc/nginx/sites-available/default',
-  line	  => 'location /redirect_me {\n\treturn 301 https://github.com/mrbridge-mrbridge;\n}',
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => 'rewrite ^/redirect_me https://github.com/mrbridge-mrbridge permanent;',
+}
+
+file { '/var/www/html/index.html':
+  content => 'Hello World!',
 }
 
 service { 'nginx':
-  ensure  => 'running',
+  ensure  => running,
   require => Package['nginx'],
 }
