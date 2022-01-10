@@ -1,3 +1,6 @@
+# puppet manifest that installs nginx
+# prints 'hello world!' on default page
+
 package { 'nginx':
   ensure  => '1.18.0-0ubuntu1.2',
 }
