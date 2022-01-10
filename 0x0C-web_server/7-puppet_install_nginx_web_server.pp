@@ -2,7 +2,7 @@
 # prints 'hello world!' on default page
 
 package { 'nginx':
-  ensure  => '1.18.0-0ubuntu1.2',
+  ensure  => 'installed',
 }
 file { '/var/www/html/index.nginx-debian.html':
   ensure  => 'file',
