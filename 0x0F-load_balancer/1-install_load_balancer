@@ -28,7 +28,7 @@ backend servers
     balance roundrobin
     mode http
     server 1131-web-01 34.73.135.187:80 check
-    1-install_load_balancer
+    server 1131-web-02 3.237.43.34:80 check
 " >> /etc/haproxy/haproxy.cfg
 
 sudo service haproxy start
