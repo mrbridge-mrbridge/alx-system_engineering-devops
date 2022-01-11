@@ -8,11 +8,7 @@ sudo add-apt-repository -y ppa:vbernat/haproxy-2.5
 sudo apt-get -y install haproxy=2.5.\*
 sudo apt-get update
 
-echo "ENABLED=1" >> /etc/default/haproxy
-mv /etc/haproxy/haproxy.cfg{,.original}
-touch /etc/haproxy/haproxy.cfg
-
-print %s "global
+printf %s "global
     daemon
     maxconn 256
 
