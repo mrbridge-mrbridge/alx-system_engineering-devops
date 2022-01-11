@@ -31,4 +31,4 @@ backend servers
     1-install_load_balancer
 " >> /etc/haproxy/haproxy.cfg
 
-sudo service haproxy restart
+sudo service haproxy start
