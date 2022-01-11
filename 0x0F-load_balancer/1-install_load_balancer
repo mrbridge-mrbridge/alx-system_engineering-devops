@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Configure HAproxy with version equal or greater than 1.5 so that it 
+# send traffic to two servers and use roundrobin algorithm
+# Make sure that HAproxy can be managed via an init script
+
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.5
+sudo apt-get -y install haproxy=2.5.\*
+sudo apt-get -y update
+
+print %s "global
+    daemon
+    maxconn 256
+
+defaults
+    mode http
+    timeout connect 5000ms
+    timeout client 500000ms
+    timeout server 500000ms
+
+frontend http
+    bind *:80
+    mode http
+
+    default_backend servers
+
+backend servers
+    balance roundrobin
+    mode http
+    server 1131-web-01 34.73.135.187:80 check
+    1-install_load_balancer
+" >> /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
