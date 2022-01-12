@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02)
+# The name of the custom HTTP header must be X-Served-By
+# The value of the custom HTTP header must be the hostname of the server Nginx is running on
+#Configure your Nginx server to have a custom 404 page that contains the string Ceci n'est pas une page.
+# Requirements:
+# The page must return an HTTP 404 error code
+# The page must contain the string Ceci n'est pas une page
+# Using what you did with 3-redirection, write 4-not_found_page_404 so that it configures a brand new Ubuntu machine to the requirements asked in this task
+
+sudo apt-get -y update
+sudo apt-get install -y nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+touch /var/www/html/404.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+printf %s "server {
+    listen	80 default_server;
+    listen	[::]:80 default_server;
+    add_header	X-Served-By $HOSTNAME;
+    root	/var/www/html;
+    index	index index.html index.htm index.nginx-debian.html;
+    location /redirect_me {
+                return 301 https://github.com/mrbridge-mrbridge/;
+        }
+    error_page 404 /404.html;
+    location = /404.html {
+                root /var/www/html;
+                internal;
+        }
+}
+" > /etc/nginx/sites-available/default2
+sudo ln -s /etc/nginx/sites-available/default2 /etc/nginx/sites-enabled
+sudo service nginx restart
