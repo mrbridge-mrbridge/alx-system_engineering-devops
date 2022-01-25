@@ -1,0 +1,17 @@
+# install ufw firewall and set up rules as follows:
+# blocks all incoming traffic, except the following TCP ports:
+# 22 (SSH)
+# 443 (HTTPS SSL)
+# 80 (HTTP)
+
+
+sudo apt install ufw
+sudo service ufw stop
+sudo ufw reset
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo service ufw start
+sudo ufw enable
