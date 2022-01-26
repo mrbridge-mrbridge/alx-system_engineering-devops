@@ -2,9 +2,9 @@
 # fix nginx to run as user "nginx" on port 8080
 
 # shut apache server on port 8080
-pkill -f apache2
+pkill apache2
 # change conf file permissions
-chmod u+w /etc/nginx/nginx.conf
+chmod 700 /etc/nginx/nginx.conf
 # change worker process user from www-data to nginx
 sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
 # listen on port 8080 instead of 80
