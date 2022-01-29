@@ -2,5 +2,5 @@
 # A MySQL dump that back up all MySQL databases
 # Archives the file using tar.gz
 
-mysqldump -u root -p "$1" --all-databases > backup.sql
+sudo mysqldump -u root -p"$1" --all-databases > backup.sql
 tar -czvf "$(date +'%d-%m-%y').tar.gz" backup.sql
