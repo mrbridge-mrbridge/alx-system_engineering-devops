@@ -6,9 +6,9 @@ import requests
 def recurse(subreddit, hot_list=[], after=None):
     """list of hot post title for a  subreddit"""
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
-    headers = {'User-Agent': 'mrbridge/v1.0'}
+    head = {'User-Agent': 'mrbridge/v1.0'}
     params = {'after': after}
-    res = requests.get(url, headers=headers, params=params, allow_redirects=False)
+    res = requests.get(url, headers=head, params=params, allow_redirects=False)
     if res.status_code == 404:
         return None
     else:
