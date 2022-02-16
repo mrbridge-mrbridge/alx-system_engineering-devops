@@ -5,6 +5,8 @@ import requests
 
 def count_words(subreddit, word_list, after=None):
     """list of hot post title for a  subreddit"""
+    if not subreddit:
+        return
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     head = {'User-Agent': 'mrbridge/v1.0'}
     params = {'after': after}
