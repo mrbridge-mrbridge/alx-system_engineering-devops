@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-"""api that prints title of all hot posts for a subreddit"""
+"""api that counts instances of word_list
+in titles of all hot posts for a subreddit"""
 import requests
 
 
 def count_words(subreddit, word_list, after=None):
-    """list of hot post title for a  subreddit"""
+    """counts words in hot post title for a  subreddit"""
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     head = {'User-Agent': 'mrbridge/v1.0'}
-    params = {'after': after}
+    params = {'after': after, 'limit': 5555500}
     res = requests.get(url, headers=head, params=params, allow_redirects=False)
     if res.status_code != 200:
         return
     else:
         finalprint = {}
-        hot_list_str = ""
         after = res.json().get('data').get('after')
         res_data = res.json().get('data').get('children')
     for each in res_data:
