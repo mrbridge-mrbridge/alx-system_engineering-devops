@@ -14,20 +14,17 @@ def count_words(subreddit, word_list, after=None):
     else:
         finalprint = {}
         hot_list_str = ""
-        title_words = []
         after = res.json().get('data').get('after')
         res_data = res.json().get('data').get('children')
     for each in res_data:
-        hot_list_str += " " + each.get('data').get('title')
-    words_sensitive = hot_list_str.split()
-    for word in words_sensitive:
-        title_words.append(word.lower())
-    for word in word_list:
-        m = title_words.count(word.lower())
-        if finalprint.get(word.lower()) is None:
-            finalprint[word.lower()] = m
-        else:
-            finalprint[word.lower()] += m
+        title_words = each.get('data').get('title').lower().split()
+        for word in word_list:
+            if word.lower() in title_words:
+                m = title_words.count(word.lower())
+                if finalprint.get(word.lower()) is None:
+                    finalprint[word.lower()] = m
+                else:
+                    finalprint[word.lower()] += m
     if after is None:
         finalprint = sorted(finalprint.items(), key=lambda kv: (-kv[1], kv[0]))
         for k, v in finalprint:
