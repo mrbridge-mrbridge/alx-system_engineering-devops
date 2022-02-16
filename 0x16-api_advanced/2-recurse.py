@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""api that prints title of top ten hot posts for a subreddit"""
+"""api that prints title of all hot posts for a subreddit"""
 import requests
 
 
-def recurse(subreddit, hot_list = [], after=None):
+def recurse(subreddit, hot_list=[], after=None):
     """list of hot post title for a  subreddit"""
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     headers = {'User-Agent': 'mrbridge/v1.0'}
