@@ -6,8 +6,8 @@ exec { 'set-ulimit':
   path    => '/usr/local/bin'
 }->
 
-# rrestart nginx
+# restart nginx
 exec { 'restart-nginx':
-  command => 'systemctl restart nginx',
+  command => 'service nginx restart',
   path    => '/usr/local/bin'
 }
