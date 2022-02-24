@@ -1,8 +1,8 @@
-# Increases the amount of traffic an Nginx server can handle.
+# fix server to be able to handle higher number of requests
 
-# Increase the ULIMIT of the default file
+# set nginx ulimit 
 exec { 'fix--for-nginx':
-  command => 'sed -i "s/15/4096/" /etc/default/nginx',
+  command => 'sed "s/^# End/i \* soft nofile 655360\n\* hard nofile 655360" /etc/security/limits.conf',
   path    => '/bin/'
 } ->
 
