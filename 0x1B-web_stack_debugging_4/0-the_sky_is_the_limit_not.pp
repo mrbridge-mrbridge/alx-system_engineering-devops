@@ -2,7 +2,7 @@
 
 # set ulimit
 exec { 'set-ulimit':
-  command => 'sed -i "s/15/5000" /etc/default/nginx',
+  command => 'sed -i "s/15/4096" /etc/default/nginx',
   path    => '/usr/local/bin'
 }->
 
