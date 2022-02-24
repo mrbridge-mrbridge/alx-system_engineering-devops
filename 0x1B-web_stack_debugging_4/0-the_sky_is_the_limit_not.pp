@@ -1,8 +1,8 @@
 # fix server to be able to handle higher number of requests
 
 # set nginx ulimit 
-exec { 'fix--for-nginx':
-  command => 'sed "s/^# End/i * soft nofile 655360\n* hard nofile 655360\n* soft nproc 655360\n* hard nproc 655360" /etc/security/limits.conf',
+exec { 'fix-nginx':
+  command => 'sed -i "s/15/5000/" /etc/default/nginx',
   path    => '/bin/'
 } ->
 
