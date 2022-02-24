@@ -2,12 +2,12 @@
 
 # set ulimit
 exec { 'set-ulimit':
-  command => 'sed "s/^# End of file/i \* soft nofile 655360\n\* hard nofile 655360\n\* soft nproc 655360\n\* hard nproc 655360\n" /etc/security/limits.conf',
+  command => 'sed "s/15/i 5000" /etc/default/nginx',
   path    => '/usr/local/bin'
 }->
 
 # restart nginx
 exec { 'restart-nginx':
-  command => 'nginx restart',
-  path    => '/etc/init.d/'
+  command => 'service nginx restart',
+  path    => '/usr/local/bin'
 }
